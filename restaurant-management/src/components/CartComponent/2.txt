@@ -1,0 +1,104 @@
+import React, { useState, useEffect } from 'react'
+// import './CartComponent.css'
+import axios from 'axios';
+// import { useNavigate, Link } from 'react-router-dom';
+
+export default function CartComponent() {
+
+    const [cart, setCart] = useState([]);
+    // const [foodname, setfoodname] = useState("");
+    // const [price, setPrice] = useState("");
+    // const [quantity, setQuantity] = useState("");
+    // const [total, setTotal] = useState("");
+    // const [discount, setDiscount] = useState("");
+    // const [status, setStatus] = useState("");
+    // const [type, setYype] = useState("");
+
+    useEffect(() => {
+        showCart();
+    }, []);
+
+    function showCart() {
+        axios.get("http://localhost/php/cart.php")
+            .then((response => {
+                // const data = JSON.parse(response.data);
+                // setCart(data);
+                setCart(response.data);
+                console.log(response.data);
+            }))
+            .catch(error => {
+                console.log(error);
+              });
+             console.log(typeof(cart));
+
+        console.log("CART: ", cart);
+    }
+
+    // const showCart = (e) => {
+    //     axios.post("http://localhost/php/cart.php", {
+    //         foodname: foodname,
+    //         price: price,
+    //         quantity: quantity,
+
+    //     })
+    //         .then((response) => {
+    //             setCart(response.data);
+    //             setfoodname("");
+    //             setPrice("");
+    //             setQuantity("");
+    //             refreshcart();
+    //             // navigate("/");
+    //         });
+    // }
+
+    return (
+        <div>
+            <div className='row'>
+                <div className='col-md-12 text-center'>
+                    <h3>Shopping Cart</h3>
+                </div>
+            </div>
+            <br /><br />
+
+            <table className="table table-hover table-dark table-group-divider">
+                <thead>
+                    <tr>
+                        <th>Food Item</th>
+                        {/* <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Total</th> */}
+                    </tr>
+                </thead>
+
+                <tbody>
+                { console.log("Cart type: ", typeof(cart))}
+                {Array.isArray(cart) && cart.map((item) => (
+                        <tr key={item.CartID}>
+                            <td>{item.foodname}</td>
+                            {/* <td>{item.price}</td>
+                            <td>{item.quantity}</td>
+                            <td>{Number(item.price) * Number(item.quantity)}</td> */}
+                            {/* <td>{item.price * item.quantity}</td> */}
+                        </tr>
+  
+                    ))}
+
+                    </tbody>
+            </table>
+
+            <br /><br /><br /><br />
+
+            {/* <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Shipping </th>
+                        <th>Discount</th>
+                        <th>Status</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+            </table> */}
+
+        </div >
+    )
+}

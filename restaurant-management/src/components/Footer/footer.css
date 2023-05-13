@@ -1,0 +1,19 @@
+#footerstyle {
+  /* color: red; */
+  background-color: #dce4e7;
+  /* background-color: #ebe9e6; */
+  width: 100%;
+  margin-top: 80px;
+  padding-top: 5%;
+  /* top: 80px; */
+  position: relative;
+  height: 80px;
+  bottom: 0px;
+}
+
+.footertext {
+  text-align: center;
+  font-weight: bold;
+  /* justify-content: center; */
+  /* align-items: center; */
+}

@@ -1,0 +1,46 @@
+import React, { useState, useEffect } from 'react'
+
+import LoginComponent from '../components/Login/LoginComponent'
+import AdminHeader from '../components/AdminHeader/AdminHeader';
+import EmployeeHeader from '../components/EmployeeHeader/EmployeeHeader';
+import UserHeader from '../components/UserHeader/UserHeader';
+import Userfooter from '../components/Footer/footer';
+
+export default function Login() {
+    const [username, setUsername] = useState('');
+    const [userid, setUserid] = useState('');
+    const [loggedin, setLoggedin] = useState(false);
+
+    useEffect(() => {
+        var username = localStorage.getItem('username');
+        var userid = localStorage.getItem('userid');
+        var loggedin = localStorage.getItem('loggedin');
+        // var loggedin = JSON.parse(localStorage.getItem('loggedin'))
+
+        setUsername(username);
+        setUserid(userid);
+        // setLoggedin(loggedin);
+        setLoggedin(JSON.parse(loggedin));
+    }, [])
+
+
+    let HeaderComponent;
+    if (username === 'admin') {
+        HeaderComponent = <AdminHeader />;
+    }
+    else if (username === 'employee') {
+        HeaderComponent = <EmployeeHeader />;
+    } 
+    else {
+        HeaderComponent = <UserHeader />;
+    }
+
+    return (
+        <>
+            <HeaderComponent />
+            <LoginComponent />
+            <Userfooter />
+        </>
+    )
+}
+

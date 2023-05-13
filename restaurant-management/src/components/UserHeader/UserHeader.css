@@ -1,0 +1,19 @@
+/* *{
+    background-color: red;
+} */
+
+/* header{
+    position: sticky;
+
+    /* background-color: #000000;
+} */
+nav{
+    position: sticky;
+
+}
+#restaurantlogo{
+    border-radius: 25%;
+    height: 45px;
+    width: 48px;
+    /* height="45" width="48" */
+}

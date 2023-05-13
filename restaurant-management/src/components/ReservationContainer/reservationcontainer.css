@@ -1,0 +1,29 @@
+.reservation-cont{
+	background-color: #ebe9e6;
+	text-align: center;
+	align-self: center;
+	height: 96vh;
+	margin-top: -1.5%;
+	padding-top: 3%;
+}
+
+.reservation-cont >h1{
+	font-size:400% ;
+	font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+	font-weight:bolder ;
+}
+
+.reservation-input-cont{
+	background-color: transparent;
+	border: 0;
+	box-shadow: none;
+	text-align: center;
+}
+
+.reservation-select-cont{
+	background-color: transparent;
+	border-color: transparent;
+	appearance: none;
+	width: 70px;
+	text-align: center;
+}
