@@ -47,7 +47,7 @@ function HomeContainer() {
         <div className="img-shadow"></div>
         <div className="content" ref={content}>
           <div className="header-text-container">
-            <h1 className="header-heading">Restaurant Name</h1>
+            <h1 className="header-heading">Hot&Grill</h1>
           </div>
         </div>
       </div>

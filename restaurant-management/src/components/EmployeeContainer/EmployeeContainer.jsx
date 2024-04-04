@@ -66,18 +66,10 @@ function InventoryContainer() {
   }
 
   function handleAdd() {
-    if (
-      !fnameInput ||
-      !lnameInput ||
-      !genderInput ||
-      !shiftInput ||
-      !positionInput ||
-      !salaryInput
-    ) {
+    if (!fnameInput || !lnameInput || !salaryInput) {
       alert("Please enter all the details for the new employee");
       return;
     }
-
     axios
       .post("http://localhost:80/api/employee.php", {
         fname: fnameInput,
@@ -106,9 +98,7 @@ function InventoryContainer() {
   function handleDelete(Eid) {
     let id = Eid;
     axios
-      .delete("http://localhost:80/api/employee.php", {
-        data: { id: id },
-      })
+      .delete("http://localhost:80/api/employee.php", { data: { id: id } })
       .then(function (response) {
         console.log(response.data);
         refreshemployee();

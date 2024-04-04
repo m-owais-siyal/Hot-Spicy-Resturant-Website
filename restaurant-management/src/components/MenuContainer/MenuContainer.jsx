@@ -111,7 +111,7 @@ function MenuContainer() {
           refreshmenu();
         } else {
           // Error adding food item, show error message
-          alert(response.data.message);
+          //alert(response.data.message);
         }
       });
   }
@@ -190,7 +190,9 @@ function MenuContainer() {
                   {item.calories}
                 </StyledTableCell>
                 <StyledTableCell align="center">
-                  {item.image && <img src={item.image} alt={item.name} />}
+                  {item.image && (
+                    <img src={item.image} alt={item.name} width={"25%"} />
+                  )}
                 </StyledTableCell>
                 <StyledTableCell align="center">
                   {item.timeframe}
